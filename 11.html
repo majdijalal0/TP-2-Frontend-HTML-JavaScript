@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p{
+            font-size: 28px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+
+        }
+        input{
+            margin:5px;
+            padding:5px;
+            width:98%;
+            font-size: 18px;
+            font-family: Arial, Helvetica, sans-serif;
+            border:solid 3px rgb(0, 0, 0);
+            box-shadow: 5px 5px 10px rgb(221, 219, 219);
+        }
+        div{
+            margin:5px;
+            padding:5px;
+            border:1px solid rgb(194, 193, 193);
+            width:98%;
+            font-size: 18px;
+            font-family: Arial, Helvetica, sans-serif;
+
+        }
+    </style>
+</head>
+<body>
+    <p>Liste de Produits</p>
+    <input type="text" placeholder="Rechercher un produit...">
+    <div>Ordinateur portable</div>
+    <div>Smartphone</div>
+    <div>Casque audio</div>
+    <div>Ecran Led</div>
+    <div>Clavier mécanique</div>
+    <div>Souris sans fil</div>
+    <script>
+        //On recupere les div
+        const elements=document.querySelectorAll("div");
+    
+        const input=document.querySelector("input");
+        
+        
+            let value="";
+            //On stocke la valeur de l'input a chaque saisie
+            input.addEventListener('input',(e)=>{
+                value=e.target.value;
+                //trasnformons en minuscule pour assurer la comparaison
+                value=value.toLowerCase();
+                //Puis pour chaque div on compare le texte avec la valeur de l'input
+                elements.forEach((el) => {
+                    
+                if(!el.textContent.toLowerCase().includes(value)){ //ici on transfomme aussi en minuscule
+                    //Si le texte ne contient pas la valeur on cache l'element
+                    el.setAttribute('hidden','');
+                } else {
+                    //Sinon on l'affiche
+                    el.removeAttribute('hidden');
+                }
+            });
+            });
+            
+            
+        
+    </script>
+</body>
+</html>

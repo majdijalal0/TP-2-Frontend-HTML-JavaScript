@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chronometre</title>
+    <style>
+        body{
+            display:flex;
+            align-items: center;
+            justify-content: center;
+            height:100vh;
+        }
+        #display{
+            font-size: 3rem;
+            font-family: Arial, sans-serif;
+            color:rgb(255, 115, 0);
+            background-color: black;
+            width:300px;
+            text-align: center;
+            padding:20px;
+            border-radius:10px;
+            border: 4px solid rgb(255, 115, 0);
+            
+        }
+    </style>
+</head>
+<body>
+    <div id="display"></div>
+    <script>
+        //delclaration des variables
+        let secondes=0;
+        let minutes=0;
+        let heures=0;
+        const display= document.getElementById('display')
+        function demarrer(){
+            //La fonction display va se repeter chaque seconde
+            setInterval(function display(){
+                //chaque seconde on ajoute 1 aux secondes
+         secondes++;
+         //si les secondes atteignent 60 on remet a 0 et on ajoute 1 aux minutes
+         if(secondes === 60){
+            secondes =0;
+            minutes++;
+            //si les minutes atteignent 60 on remet a 0 et on ajoute 1 aux heures
+            if(minutes===60){
+                minutes=0;
+                heures++;
+            }
+         }
+         //affichage dans le div display
+         afficherTemps();
+    },1000)
+}
+      
+    function afficherTemps(){
+        const temps= `${heures}:${minutes}:${secondes}`
+        display.textContent= temps;
+    }
+    demarrer();
+    </script>
+</body>
+</html>

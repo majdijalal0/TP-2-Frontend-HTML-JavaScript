@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #div{
+            width:wrap-content;
+            height:100px;
+            background-color:red;
+            text-align:center;
+            line-height:100px;
+            color:white;
+            margin-bottom:10px;
+            font-size: 36px;
+            font-weight: 400;
+            font-family: arial;
+        }
+        #button{
+            padding:10px 20px;
+            font-size:20px;
+            background-color: rgb(0, 26, 255);
+            border:none;
+            border-radius: 15px;
+            margin-left : 45%;
+        }
+    </style>
+</head>
+<body>
+    <div id="div">
+        Cliquer sur le bouton pour changer la couleur
+    </div>
+    <button id="button">Cliquer ici</button>
+    <script>
+      const button=document.getElementById('button');
+      const div=document.getElementById('div');
+      let isBlue = false;
+      button.addEventListener('click',()=>{
+        if(!isBlue){
+          div.style.backgroundColor='blue';
+          button.style.backgroundColor='red';
+          isBlue = true
+        } else{
+          div.style.background='red';
+          button.style.backgroundColor='blue';
+
+          isBlue = false
+        }
+        
+      });
+   
+    </script>
+</body>
+</html>

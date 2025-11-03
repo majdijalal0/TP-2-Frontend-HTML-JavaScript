@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input {
+    width: 250px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px; 
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+input:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    margin-left: 45%
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    margin: 20px auto;
+}
+p{
+    font-family: arial;
+    font-size: 36px;
+    font-weight: 400;
+
+}
+    </style>
+</head>
+<body>
+    <form >
+     <input type="email" name="email" placeholder="email">
+     <input type="text" name="nom" placeholder="Nom">
+    </form>
+        <button>Soumettre</button>
+
+    <p id="affichage"></p>
+    <script>
+        const input=document.querySelectorAll('input');
+        const button=document.querySelector('button');
+        const p=document.getElementById('affichage');
+        button.addEventListener('click',() =>{
+            p.innerHTML=""
+           input.forEach(input =>{
+            if(input.value !== ""){               
+                 p.innerHTML += `Votre ${input.name} est ${input.value} <br>`
+            }
+            else{
+                p.innerHTML = "Veuillez remplire tous les champs"
+                
+            }
+           })
+        });
+    </script>
+</body>
+</html>

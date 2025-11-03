@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        max-width: 600px;
+        margin: 30px auto;
+        padding: 20px;
+        text-align: center;
+    }
+
+    input {
+        width: 150px;
+        padding: 10px;
+        margin: 10px;
+        border: 2px solid #ddd;
+        border-radius: 4px;
+        font-size: 16px;
+        transition: border-color 0.3s;
+    }
+
+    input:focus {
+        border-color: #007bff;
+        outline: none;
+    }
+
+    button {
+        width: 50px;
+        height: 50px;
+        margin: 5px;
+        border: none;
+        border-radius: 50%;
+        font-size: 20px;
+        background-color: #007bff;
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    button:hover {
+        background-color: #0056b3;
+    }
+
+    #resultat {
+        font-size: 24px;
+        margin-top: 20px;
+        color: #333;
+    }
+</style>
+</head>
+<body>
+    <p>Entrer le 1er operande et le 2eme operande:</p>
+    <input type="text" name="oper1" id="oper1">
+    <input type="text" name="oper2" id="oper2">
+    <br><br>
+    <button id="plus">+</button>
+    <button id="minus">-</button>
+    <button id="multiply">*</button>
+    <button id="divide">/</button>
+    <p id="resultat"></p>
+
+    <script>
+        const oper1 = document.getElementById('oper1');
+        const oper2 = document.getElementById('oper2'); 
+        const resultat = document.getElementById('resultat');
+        const plus = document.getElementById('plus');
+        plus.addEventListener('click', function() {
+            const sum = parseFloat(oper1.value) + parseFloat(oper2.value);
+            resultat.innerHTML = "Resultat: " + sum;
+        });
+        const minus = document.getElementById('minus'); 
+        minus.addEventListener('click', function() {
+            const difference = parseFloat(oper1.value) - parseFloat(oper2.value);
+            resultat.innerHTML = "Resultat: " + difference;
+        });
+        const multiply = document.getElementById('multiply');
+        multiply.addEventListener('click', function() {
+            const produit = parseFloat(oper1.value) * parseFloat(oper2.value);
+            resultat.innerHTML = "Resultat: " + produit;
+        });
+        const divide = document.getElementById('divide');
+        divide.addEventListener('click', function() {
+            const division = parseFloat(oper1.value) / parseFloat(oper2.value);
+            resultat.innerHTML = "Resultat: " + division;
+        });
+    </script>
+</body>
+</html>

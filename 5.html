@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+   
+        #main{
+            
+            width:100%;
+            height:600px;
+            background-repeat: no-repeat;
+            background-position: center; 
+            background-size: cover;
+        }
+        #buttons{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        button{
+            margin:10px;
+            font-size: 36px;
+            width:250px;
+            height:fit-content;
+            border:none;
+            border-radius: 20px;
+            background-color: black;
+            color:white;
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+
+    </div>
+    <div id="buttons">
+        <button id="suivant">Suivant</button>
+    <button id="precedent">Précedent</button>
+    </div>
+    
+
+    <img class="img" src="images/photo-1421789665209-c9b2a435e3dc.avif" alt="" hidden>
+    <img class="img" src="images/photo-1426604966848-d7adac402bff.avif" alt="" hidden>
+    <img class="img" src="images/photo-1573001198800-ba08225bf4dc.avif" alt="" hidden>
+    <img class="img" src="images/photo-1470071459604-3b5ec3a7fe05.avif" alt="" hidden>
+
+ <script>
+    const images = document.querySelectorAll('.img');
+    console.log(images);
+    const suivant = document.getElementById('suivant');
+    const aff=document.getElementById('main')
+    let i=0;
+    aff.style.backgroundImage=`url(${images[i].src})`
+    const precedent = document.getElementById('precedent');
+    suivant.addEventListener('click',() =>{
+        if(i<images.length){
+        i++
+       aff.style.backgroundImage=`url(${images[i].src})`
+        }
+    })
+     precedent.addEventListener('click',() =>{
+        if(i>0){
+            i--
+aff.style.backgroundImage=`url(${images[i].src})`
+        }
+    })
+ </script>
+</body>
+</html>

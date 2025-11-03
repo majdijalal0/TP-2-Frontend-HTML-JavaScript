@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #f5f5f5;
+}
+
+#global {
+    border: none;
+    width: 400px;
+    height: 400px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+#affichage {
+    display: flex;
+    width: 410px;
+    height: 150px;
+    background-color: #e8e8e8;
+    font-size: 46px;
+    justify-content: end;
+    align-items: center;
+    padding-right: 10px;
+    box-sizing: border-box;
+    outline : solid 1px black;
+}
+
+#main {
+    display: grid;
+    width: 400px;
+    height: 310px;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: repeat(4,70px);
+    background-color: #ffae00;
+    gap: 5px;
+    padding: 5px;
+    outline : solid 1px black;
+
+}
+
+button {
+    background-color: #333;
+    color: #ffd700;
+    font-size: 36px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: #444;
+}
+
+#clear {
+    background-color: #ff4444;
+    color: white;
+}
+
+#equals {
+    background-color: #4CAF50;
+    color: white;
+}
+
+    </style>
+</head>
+<body>
+    <div id="global">
+        <div id="affichage">0</div>
+    <div id="main">
+    
+    <button class="n" value="1">1</button>
+    <button class="n" value="2">2</button>
+    <button class="n" value="3">3</button>
+    <button class="op" id="plus">+</button>
+   
+
+    <button class="n" value="4">4</button>
+    <button class="n" value="5">5</button>
+    <button class="n" value="6">6</button>
+    <button class="op"  id="minus">-</button>
+    
+
+    <button class="n" value="7">7</button>
+    <button class="n" value="8">8</button>
+    <button class="n" value="9">9</button>
+    <button class="op"  id="multiply">*</button>
+    
+
+    <button class="n" value="0">0</button>
+    <button id="clear">C</button>
+    <button class="op"  id="divide">/</button>
+    <button id="equals">=</button>
+    
+
+</div>
+    </div>
+    
+<script>
+    const affichage = document.getElementById('affichage');
+    const operations= document.querySelectorAll(".op");
+    const numbers = document.querySelectorAll(".n");
+    numbers.forEach(element => {
+        
+        
+        element.addEventListener('click', (e)=>{
+        if(affichage.innerHTML === "0"){
+         affichage.innerHTML="";
+        }
+        affichage.innerHTML+=e.target.textContent;
+        })
+        
+
+    });
+    
+
+      operations.forEach(element => {
+        element.addEventListener('click', (e)=>{
+        affichage.innerHTML+=e.target.textContent;
+        })
+        
+    });
+    const equals= document.getElementById('equals');
+    equals.addEventListener('click',()=>{
+        affichage.innerHTML = eval(affichage.innerHTML.toString());
+    })
+    const clear = document.getElementById('clear');
+    clear.addEventListener('click',()=>{
+        affichage.innerHTML = "";
+    })
+
+</script>
+</body>
+</html>

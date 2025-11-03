@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display:flex;
+            align-items: center;
+            justify-content: center;
+            height:100vh;
+            background-color: rgb(255, 255, 255);
+        }
+        #disp{
+            width:300px;
+            height:200px;
+            border:2px solid orange;
+            display:flex;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, sans-serif;
+            font-size: 1.5rem;
+            background-color: rgb(0, 0, 0);
+            color:orange;
+
+        }
+    </style>
+</head>
+<body>
+    <div id="disp">
+        Passez la souris ici
+    </div>
+    <script>
+        const disp=document.getElementById('disp');
+        disp.addEventListener('mouseover', function(){
+            disp.style.backgroundColor='orange';
+            disp.style.color='black';
+            disp.style.borderColor='black'
+        });
+        disp.addEventListener('mouseout', function(){
+            disp.style.backgroundColor='black';
+            disp.style.color='orange';
+            disp.style.borderColor='orange'
+
+        });
+    </script>
+</body>
+</html>

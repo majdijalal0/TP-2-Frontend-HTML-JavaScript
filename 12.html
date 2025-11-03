@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p{
+            font-size: 24px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+        }
+        #container{
+            display:flex;
+            flex-direction:row;
+            flex-wrap:wrap;
+            gap:10px;
+        }
+        #container div{
+            display:flex;
+            flex-basis:48%;
+            height:50px;
+            background-color:rgb(255, 157, 0);
+            color:rgb(0, 0, 0);
+            font-size: 20px;
+            font-weight: bold;
+            font-family: Arial, Helvetica, sans-serif;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            transition: flex-basis 0.3s ease, width 0.3s ease;
+
+        }
+    </style>
+</head>
+<body>
+    <p>Responsive Page avec JavaScript</p>
+    <div id="container">
+    <div>Boite 1</div>
+    <div>Boite 2</div>
+    <div>Boite 3</div>
+    <div>Boite 4</div>
+</div>
+    
+<script>
+  const divs= document.querySelectorAll("#container div");
+  function ajusterTaille(){
+    divs.forEach(div =>
+  {
+    if(window.innerWidth <600){
+        div.style.flexBasis="100%";
+        div.style.width = "100%";
+       } else if( window.innerWidth <900){
+            div.style.flexBasis="90%";
+            div.style.width = "auto";
+       }else if(window.innerWidth<1200){
+        div.style.flexBasis="80%";
+        div.style.width = "auto";
+       }else{
+        div.style.flexBasis="48%";
+        div.style.width = "auto";
+        }
+       
+        }
+        
+       
+);
+}
+  ajusterTaille();
+    window.addEventListener('resize',ajusterTaille);
+
+  
+    
+</script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin:0;
+        }
+        #text{
+            width:100%;
+            height:80px;
+            background-color: rgb(175, 176, 176);
+            text-align: center;
+            font-size: 36px;
+            font-weight: 400;
+            font-family: arial;
+
+        }
+        #button{
+            display: flex;
+            justify-self: center;
+            align-items: center;
+        }
+        button{
+            width:200px;
+            background-color:gray;
+            font-size: 15px;
+            padding:7px;
+            border-radius: 10px;
+            
+        }
+    </style>
+</head>
+<body>
+    <div id="text" >
+        Thème Clair
+    </div>
+
+    <div id="button"> 
+        <button>
+        Activer le thème sombre
+    </button>
+</div>
+   
+    <script>
+        const button = document.querySelector('button');
+        const div = document.querySelector('div');
+        let modesombre = false;
+        button.addEventListener('click',()=>{
+            if(!modesombre){
+            document.body.style.backgroundColor="black";
+            button.style.backgroundColor="white";
+            button.textContent="Activer le thème clair "
+            div.style.color="white"
+            div.textContent="Thème sombre"
+            modesombre=true;
+            }else{
+             document.body.style.backgroundColor="white";
+            button.style.backgroundColor="gray";
+            button.textContent="Activer le thème sombre "
+            div.style.color="black"
+            div.textContent="Thème clair"
+            modesombre=false;  
+            }
+           
+        })
+
+       
+    </script>
+</body>
+</html>

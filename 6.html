@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-top:50px;
+        }
+        #menu{
+            width:200px;
+            height:50px;
+            background-color: #ff7700;
+            color:rgb(0, 0, 0);
+            text-align: center;
+            line-height: 50px;
+            font-size: 24px;
+            cursor: pointer;
+            border: solid 4px black;
+            border-radius: 8px;
+            ;
+        }
+        #elements div{
+            width:200px;
+            height:50px;
+            background-color: rgb(0, 0, 0);
+            color:#ff7700;
+            text-align: center;
+            line-height: 50px;
+            font-size: 20px;
+            margin-top:5px;
+            border-radius: 8px;
+            border: solid 4px #ff7700;
+
+        }
+    </style>
+</head>
+<body>
+    <div id="menu">Menu</div>
+    <!--Les éléments sont caché par défaut-->
+    <div id="elements" hidden>
+        <div>Element 1</div>
+        <div>Element 2</div>
+        <div>Element 3</div>
+        <div>Element 4</div>
+    </div>
+<script>
+    //selection des elements
+    const menu=document.getElementById('menu');
+    const elements=document.getElementById('elements');
+    //Si on clique sur le menu et que les élements sont cachés, on les affiche  sinon on fait l'inverse
+    menu.addEventListener('click',()=>{
+        if(elements.hasAttribute('hidden')){
+            elements.removeAttribute('hidden');
+
+    }else{
+        elements.setAttribute('hidden','');
+    }
+});
+</script>
+</body>
+</html>
